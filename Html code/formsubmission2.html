@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+    <style>
+ .box{
+            width: 500px;
+            height: 200px;
+            background-color: cornflowerblue;
+            padding: 20px;
+            margin-left: 30%;            
+            border-radius: 20px;
+            border: solid;
+            border-color: brown;     
+        }
+
+        label{
+            font-size: large;
+            color:bisque;            
+        }
+
+        .textbox{
+            width: 100%;
+            height: 30px;
+            color:blue;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .btnLogin{
+            width:150px;
+            height: 40px;
+            background-color: green;
+            color:greenyellow;
+            font-weight: bold;
+        }
+
+        .btnReset{
+            width:150px;
+            height: 40px;
+            background-color: red;
+            color:greenyellow;
+            font-weight: bold;
+        }
+</style>
+</head>
+<body>
+   <h2 style="text-align: center;">Login Page</h2>
+    <hr />
+    <form name="frmname" method="post" action="welcom1.html" onsubmit="return userchek()" >
+    <div class="box">
+                <label>Username</label><br />
+                <input type="text"  name="txtUname" class="textbox"/>
+
+                        <br />
+                <label>Password</label> <br />
+                <input type="password"  name="txtPwd" class="textbox"/>
+                        
+                    <br /><br />
+                <div style="text-align: center;width: 100%;">
+                    <input type="submit"  value="Login here" class="btnLogin"/>
+                    <input type="reset"  value="Clear Form" class="btnReset"/>                                                             
+                </div>
+        </div> 
+        </form>
+       
+        <h2 style="text-align: center;" id="res"></h2>
+        <script type="text/javascript">
+            function userchek()
+            {
+              let unme=frmname.txtUname.value;
+              let pwd=frmname.txtPwd.value;
+              if(uname==="navya"&& pwd==="navya123")
+              return true;
+              else
+              {
+             document.getElementById("res").innerHTML="please enter your credentials";
+            return false;
+              }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+    <h1 style="text-align: center;">Dropdown Demo</h1>
+    <form name="frmname">
+    <p style="text-align:center;">
+        <lable>Location</lable>
+    <br>
+        <select name="ddlloc" onchange="Demodropdown()">
+        <option value="-1">city</option>
+        <option value="sweden">sweden</option>
+        <option value="denmark">denmark</option>
+        <option value="norway">norway</option>
+        <option value="finland">finland</option>
+    </select> 
+ </p>
+</form>
+<h2 style="text-align:center" id="res"></h2>
+    <script type="text/javascript">
+         function Demodropdown()
+        {
+          let cname=frmname.ddlloc.value;
+          if(cname!=="-1")
+           document.getElementById("res").innerHTML= "your city is :"  +cname;
+        else{
+            alert("please enter city");
+            document.getElementById("res").innerHTML= "" ;
+        }
+    }
+    </script>
+</body>
+</html>

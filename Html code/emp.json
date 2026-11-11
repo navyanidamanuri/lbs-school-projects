@@ -1,0 +1,65 @@
+{
+  "employee": [
+    {
+      "id": "101",
+      "ename": "madhu",
+      "job": "programmer",
+      "sal": 30000
+    },
+    {
+      "id": "102",
+      "ename": "navya",
+      "job": "manager",
+      "sal": 50000
+    },
+    {
+      "id": "103",
+      "ename": "vanshika",
+      "job": "tester",
+      "sal": 25000
+    },
+    {
+      "id": "104",
+      "ename": "dipesh",
+      "job": "supportstaff",
+      "sal": 30000
+    },
+    {
+      "id": "zJpn79WwIbM",
+      "ename": "anitha",
+      "job": ".net developer",
+      "sal": "30000"
+    },
+    {
+      "id": "vue6vy8aKis",
+      "ename": "erik",
+      "job": "larare",
+      "sal": "40000"
+    },
+    {
+      "id": "9EiyQUtzo_I",
+      "ename": "erik",
+      "job": "larare",
+      "sal": "40000"
+    },
+    {
+      "id": "kibL1PyihT0",
+      "ename": "sana",
+      "job": "manager",
+      "sal": 50000
+    },
+    {
+      "id": "cxwacaeBHM4",
+      "ename": "navya",
+      "job": "programmer",
+      "sal": "23000"
+    },
+    {
+      "id": "tu6_qREG8G4",
+      "ename": "navya",
+      "job": "programmer",
+      "sal": "30000"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

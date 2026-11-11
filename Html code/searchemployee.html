@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search Employee</title>
+</head>
+
+<body>
+
+
+<h1 style="text-align: center;">Search Employee</h1>
+
+<div style="text-align: center;">
+
+    <input type="text" id="searchid" placeholder="Enter Employee ID">
+
+    <input type="button" value="Search" onclick="searchemp()">
+
+</div>
+
+<h3 style="text-align: center;" id="info"></h3>
+
+<table width="100%" border="1" id="emp-table">
+
+    <tr>
+        <th>Emp ID</th>
+        <th>Emp Name</th>
+        <th>Emp Job</th>
+        <th>Emp Salary</th>
+    </tr>
+
+</table>
+
+
+<script>
+
+    function searchemp()
+    {
+        let searchid =
+            document.getElementById("searchid").value;
+
+
+        fetch('http://localhost:3000/employee')
+
+        .then(response => response.json())
+
+        .then(data => {
+
+            console.log(data);
+
+            let result = data.filter(employee =>
+                String(employee.id) === String(searchid)
+            );
+
+
+            if(result.length === 0)
+            {
+                document.getElementById("info").innerHTML =
+                    "Employee not found";
+            }
+            else
+            {
+                document.getElementById("info").innerHTML =
+                    "Employee found";
+
+                showdata(result);
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error("Error:", error);
+
+        });
+    }
+
+
+    function showdata(empdata)
+    {
+        const table =
+            document.getElementById("emp-table");
+
+
+        // Remove previous search result
+        while(table.rows.length > 1)
+        {
+            table.deleteRow(1);
+        }
+
+
+        for(let i = 0; i < empdata.length; i++)
+        {
+            let row = table.insertRow(-1);
+
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+
+
+            cell1.innerHTML = empdata[i].id;
+
+            cell2.innerHTML = empdata[i].ename;
+
+            cell3.innerHTML = empdata[i].job;
+
+            cell4.innerHTML = empdata[i].sal;
+        }
+    }
+
+</script>
+
+
+</body>
+
+</html>

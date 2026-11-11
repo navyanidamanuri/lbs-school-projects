@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+
+<body>
+    <h1 style="text-align: center;">add employee</h1>
+    <form name="frmname" method="post">
+        <div style="text-align: center;">
+            <input type="text" name="txtid" placeholder="empid">
+            <br><br>
+            <input type="text" name="txtname" placeholder="empname">
+            <br><br>
+            <input type="text" name="txtjob" placeholder="empjob">
+            <br><br>
+            <input type="text" name="txtsal" placeholder="empsal">
+            <br><br>
+            <input type="button" value="AddEmployee" onclick="addemployee()">
+        </div>
+    </form>
+    <script type="text/javascript">
+        function addemployee() {
+            let id = frmname.txtid.value;
+            let ename = frmname.txtname.value;
+            let job = frmname.txtjob.value;
+            let sal = frmname.txtsal.value;
+
+            const empdata = { id: id, ename: ename, job: job, sal: sal }
+            fetch('http://localhost:3000/employee', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(empdata)
+            })
+                .then(response => response.json())
+                .then((result) =>{
+                     console.log(result)
+                    })
+                .catch((error) =>{
+                     console.error('Error:', error)
+                    });
+        }
+    </script>
+</body>
+
+</html>

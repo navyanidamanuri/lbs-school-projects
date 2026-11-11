@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+
+<body style="text-align: center;">
+    <form name="frmname">
+        <lable>StudentName</lable><br />
+        <input type="text" name="textsname" /><br />
+        <label>Gender</label><br />
+        <label>male</label>
+        <input type="radio" name="GenderName" value="Male" />
+        <label>female</label>
+        <input type="radio" name="GenderName" value="feMale" />
+        <br /><br />
+        <select name="ddlname">
+            <option value="hyd">hydrabad</option>
+            <option value="chenni">chenni</option>
+            <option value="sweden">sweden</option>
+        </select>
+        <br><br>
+        <input type="button" value="Register" onclick="registration()"/>
+        <input type="button" value="refresh" onclick="refresh()"/>
+        <br><br>
+    </form>
+    <h1 style="text-align: center;" id="res"></h1>
+
+    <script type="text/javascript">
+        function registration()
+{
+    let sname = frmname.textsname.value;
+    let gender = frmname.GenderName.value;
+    let location = frmname.ddlname.value;
+
+    document.getElementById("res").innerHTML =
+        "Registration done!<br>" +
+        "Student Name: " + sname + "<br>" +
+        "Gender: " + gender + "<br>" +
+        "Location: " + location;
+}
+ function refresh()
+{
+   location.reload();
+}
+    </script>
+</body>
+
+</html>

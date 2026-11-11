@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+     <h1 style="text-align: center;">Testbox  Adittion</h1>
+</body>
+<form  name="frmname">
+<p style="text-align: center;">
+    <input type="text" name="txtvalue1" placeholder="val-1"/>
+    <br><br>
+    <input type="text" name="txtvalue2" placeholder="val-2"/>
+    <br><br>
+        <input type="button" value="clickme" onclick="Demofun()" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" value="reset" onclick="ResetForm()"/>
+    </p>
+</form>
+<h2 style="text-align: center;" id="res"></h2>
+    <script type="text/javascript">
+        function Demofun()
+        {
+          let x=parseFloat(frmname.txtvalue1.value)
+           let y=parseFloat(frmname.txtvalue2.value);
+           sum=x+y;
+           document.getElementById("res").innerHTML= "Adition,"+sum;
+        }
+        function ResetForm()
+        {
+           let x=frmname.txtvalue1.value ="";
+           let y=frmname.txtvalue2.value="";
+            document.getElementById("res").innerHTML= "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+</head>
+<body onload="getdata()">
+    <h1 style="text-align: center;">Employee Informataion</h1>
+    <table width="100%" border="1" id="emp-table">
+        <tr>
+            <th>emp id</th>
+            <th>emp name</th>
+            <th>emp job</th>
+            <th>emp sal</th>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        function getdata()
+        {
+           fetch('http://localhost:3000/employee')
+         .then(response => response.json())
+          .then((data) => {
+            console.log(data)
+           showdata(data);
+       })
+          .catch(error => console.error('Error:', error));
+        }
+        function showdata(empdata)
+        {
+       const tableRow=document.getElementById("emp-table");
+       for(let i=0;i<empdata.length;i++)
+       {
+       const row = tableRow.insertRow(-1);
+
+// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+     const cell1 = row.insertCell(0);
+     const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+       const cell4 = row.insertCell(3);
+
+// Add some text to the new cells:
+         cell1.innerHTML = empdata[i].id;
+         cell2.innerHTML = empdata[i].ename;
+         cell3.innerHTML= empdata[i].job;
+         cell4.innerHTMl= empdata[i].sal;
+        }
+    }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+     <h1 style="text-align: center;">Testbox  Adittion</h1>
+</body>
+<form  name="frmname">
+<p style="text-align: center;">
+   <input type="radio" name="bankname" value="cc" onchange="Rdofun()"/>
+   <label>crdit card</label>
+   &nbsp; &nbsp; &nbsp; &nbsp;
+   <input type="radio" name="bankname" value="dc" onchange="Rdofun()"/>
+   <label>debit card</label>
+   &nbsp; &nbsp; &nbsp; &nbsp;
+   <input type="radio" name="bankname" value="nb" onchange="Rdofun()"/>
+   <label>netbanking</label>
+    </p>
+</form>
+<h2 style="text-align: center;" id="res"></h2>
+    <script type="text/javascript">
+        function Rdofun()
+        {
+          let bankval=frmname.bankname.value;
+           document.getElementById("res").innerHTML=  bankval;
+        }
+       
+    </script>
+</body>
+</html>
