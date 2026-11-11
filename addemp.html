@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Add newemplyee</h1>
+    <form name="frmname" method="post">
+        <div style="text-align: center;">
+            <input type="number" name="txtid" placeholder="empid" />
+            <br><br>
+            <input type="text" name="txtname" placeholder="empname" />
+            <br><br>
+            <input type="text" name="txtjob" placeholder="empjob" />
+            <br><br>
+            <input type="text" name="txtsal" placeholder="empsal" />
+            <br><br>
+            <input type="button" value="add employee"  onclick="addemp()"/>
+        </div>
+    </form>
+    <h3 style="text-align: center;" id="info"></h3>
+    <script type="text/javascript">
+        function addemp() {
+            let id = Number(frmname.txtid.value);
+            let ename = frmname.txtname.value;
+            let job = frmname.txtjob.value;
+            let sal = frmname.txtsal.value;
+            empdata = { id: id, ename: ename, job: job, sal: sal }
+           fetch('http://localhost:3000/employee', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(empdata)
+            })
+                .then(response => response.json())
+                .then((result) =>{
+
+               console.log(result)
+               document.getElementById("info").innerHTML="employee added";
+             } )
+                .catch((Err) =>
+                {
+                  console.error('Err:', error)
+                }); 
+        }
+    </script>
+</body>
+
+</html>
